@@ -34,9 +34,8 @@
 
 ### [INDEX]
 ### 1. Public API
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1-1. Ticker1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 거래소 마지막 거래 정보 <span style="color:red">(Deprecated)</span> <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1-2. Ticker2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 거래소 마지막 거래 정보 (마켓 구분 추가) <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1-3. Orderbook&nbsp; - 거래소 판매 / 구매 등록 대기 또는 거래 중 내역 정보 <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1-1. Ticker&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 거래소 마지막 거래 정보 <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1-2. Orderbook&nbsp; - 거래소 판매 / 구매 등록 대기 또는 거래 중 내역 정보 <br/>
 ### 2. Token
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2-1. Create&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 최초 토큰 생성 <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2-2. Refresh&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 토큰 갱신 <br/>
@@ -57,60 +56,9 @@
 ### [Reference]
 
 ### 1. Public API
-
-#### 1-1.Ticker - 거래소 마지막 거래 정보 <span style="color:red">(Deprecated)</span>
-
-__[GET]__ &nbsp;&nbsp;&nbsp;```https://api.uznex.co.kr/api/ticker/currency/{coin_code}```
-
-__[Curl]__ &nbsp;&nbsp;&nbsp;```curl -X GET --header 'Accept: application/json' 'https://api.uznex.co.kr/api/ticker/currency/{coin_code}'```
-
-__[Response Body]__
-
-```
-{
-  "status": "0000",
-  "data": {
-    "open_price": "10000",
-    "close_price": "10000",
-    "low": "10000",
-    "high": "10000",
-    "average_price": "0.0",
-    "units_traded": "0E-18",
-    "volume_1day": "0E-18",
-    "volume_7day": "431.699880000000000000",
-    "buy_price": "0000000000.00000000",
-    "sell_price": "0000000000.00000000",
-    "date": 1548933680756
-  }
-}
-```
-
-__[Input Parameters]__
-
-|&nbsp;&nbsp;&nbsp;Parameter Name&nbsp;&nbsp;&nbsp;|Description|
-|:------------:|:---------:|
-|coin_code|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;코인명 (ALL, BTC, ETH, ETC, LTC, ZEC, etc.)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
-
-__[Response]__
-
-|&nbsp;&nbsp;&nbsp;Response Field&nbsp;&nbsp;&nbsp;|Description|
-|:------------:|:---------:|
-|status: 0000|정상|
-|open_price|최근 24시간 내 시작 거래금액|
-|close_price|최근 24시간 내 마지막 거래금액|
-|low|최근 24시간 내 최저 거래금액|
-|High|최근 24시간 내 최고 거래금액|
-|average_price|최근 24시간 내 평균 거래금액|
-|units_traded|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;최근 24시간 내 Currency 거래량&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
-|volume_1day|최근 1일간 Currency 거래량|
-|volume_7day|최근 7일간 Currency 거래량|
-|buy_price|거래 대기건 최고 구매가|
-|sell_price|거래 대기건 최소 판매가|
-|date|현재 시간 Timestamp|
-
 &nbsp;
 ---
-#### 1-2.Ticker - 거래소 마지막 거래 정보 (마켓 구분 추가)
+#### 1-1.Ticker - 거래소 마지막 거래 정보
 
 __[GET]__ &nbsp;&nbsp;&nbsp;```https://api.uznex.co.kr/api/v1/ticker/currency/{coin_code}```
 
@@ -156,14 +104,14 @@ __[Input Parameters]__
 
 |&nbsp;&nbsp;&nbsp;Parameter Name&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
-|coin_code|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;코인명 (ALL, BTC, ETH, ETC, LTC, ZEC, etc.)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+|coin_code|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;마켓명_코인명 (USD_BTC, USD_UNB, BTC_EOS, BTC_XRP, etc.)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 
 __[Response]__
 
 |&nbsp;&nbsp;&nbsp;Response Field&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
 |status: 0000|정상|
-|USD, BTC| 마켓 코드|
+|KRW, BTC| 마켓 코드|
 |open_price|최근 24시간 내 시작 거래금액|
 |close_price|최근 24시간 내 마지막 거래금액|
 |low|최근 24시간 내 최저 거래금액|
@@ -179,7 +127,7 @@ __[Response]__
 &nbsp;
 ---
 
-#### 1-3. Orderbook - 거래소 판매 / 구매 등록 대기 또는 거래 중 내역 정보
+#### 1-2. Orderbook - 거래소 판매 / 구매 등록 대기 또는 거래 중 내역 정보
 __[GET]__ &nbsp;&nbsp;&nbsp;```https://api.uznex.co.kr/api/orderbook/currency/{coin_code}```
 
 __[Curl]__ &nbsp;&nbsp;&nbsp;```curl -X GET --header 'Accept: application/json' 'https://api.uznex.co.kr/api/orderbook/currency/{coin_code}'```
@@ -226,7 +174,7 @@ __[Input Parameters]__
 
 |&nbsp;&nbsp;&nbsp;Parameter Name&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
-|coin_code|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;코인명 (BTC, ETH, ETC, LTC, ZEC, etc.)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|coin_code|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;마켓명_코인명 (USD_BTC, USD_UNB, BTC_EOS, BTC_XRP, etc.)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 __[Response]__
 
@@ -406,7 +354,7 @@ __[Input Parameters]__
 
 |&nbsp;&nbsp;&nbsp;Parameter Name&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
-|currency|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;코인명 (BTC, ETH, ETC, LTC, ZEC, etc.)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+|currency|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;마켓명_코인명 (USD_BTC, USD_UNB, BTC_EOS, BTC_XRP, etc.)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 
 
 
@@ -458,7 +406,7 @@ __[Input Parameters]__
 
 |&nbsp;&nbsp;&nbsp;Parameter Name&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
-|currency|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;코인명 (ALL, BTC, ETH, ETC, LTC, ZEC, etc.)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+|currency|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;마켓명_코인명 (USD_BTC, USD_UNB, BTC_EOS, BTC_XRP, etc.)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 
 __[Response]__
 
@@ -501,7 +449,7 @@ __[Response Body]__
       "trd_type": "BUY",
       "units": 0.001,
       "transfer_date": 1548404789817,
-      "btc1krw": 3905500
+      "btc1usd": 3905500
     },
     {
       "search": 0,
@@ -512,7 +460,7 @@ __[Response Body]__
       "trd_type": "SELL",
       "units": 0.01019,
       "transfer_date": 1547549769770,
-      "btc1krw": 4086000
+      "btc1usd": 4086000
     },
     {
       "search": 0,
@@ -523,7 +471,7 @@ __[Response Body]__
       "trd_type": "SELL",
       "units": 0.01097,
       "transfer_date": 1547549762618,
-      "btc1krw": 4086500
+      "btc1usd": 4086500
     },
     ...
 ```
@@ -539,7 +487,7 @@ __[Input Parameters]__
 
 |&nbsp;&nbsp;&nbsp;Parameter Name&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
-|currency|코인명 (BTC, ETH, ETC, LTC, ZEC, etc.)|
+|currency|마켓명_코인명 (USD_BTC, USD_UNB, BTC_EOS, BTC_XRP, etc.)|
 |deal_status|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;상태 - 0(전체), 1(매도), 2(매수), 3(취소), 4(정정)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 |trd_status|주문 상태 - OK, WAIT|
 
@@ -566,7 +514,7 @@ __[POST]__&nbsp;&nbsp;&nbsp;``https://api.uznex.co.kr/api/private/v1/order/cance
 
 ```
 {
-  "currency" : "BTC",
+  "currency" : "USD_BTC",
   "org_ord_no" : "190208154943577"
 }
 ```
@@ -575,7 +523,7 @@ __[Curl]__
 
 ```
 curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'Accept: application/json' --header 'Authorization: Bearer 7603c80ddcd596c6fffb642e44470b9cea0d79e2e67a7b9de9ff5b957d46c1c7' -d '{ \ 
-   "currency" : "BTC", \ 
+   "currency" : "USD_BTC", \ 
    "org_ord_no" : "190208154943577" \ 
  }' 'https://api.uznex.co.kr/api/private/v1/order/cancel'
 ``` 
@@ -601,7 +549,7 @@ __[Input Parameters]__
 |&nbsp;&nbsp;&nbsp;Parameter Name&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
 |apikey|유저 API 고유 Key|
-|currency|코인명 (BTC, ETH, ETC, LTC, ZEC, etc.)|
+|currency|마켓명_코인명 (USD_BTC, USD_UNB, BTC_EOS, BTC_XRP, etc.)|
 |org_ord_no|주문번호|
 |nonce|현재날짜 (ex : 20190208)|
 |hstr|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sha-256(nonce, currency, secretKey, sheckSum)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
@@ -621,11 +569,11 @@ __[POST]__&nbsp;&nbsp;&nbsp;``https://api.uznex.co.kr/api/private/v1/order/place
 
 ```
 {
-  "currency" : "BTC",
+  "currency" : "USD_BTC",
   "deal_type" : "B",
   "deal_money" : "10000",
   "amount" : "1",
-  "fee_type" : "K"
+  "fee_type" : "C"
 }
 ```
 
@@ -633,11 +581,11 @@ __[Curl]__
 
 ```
 curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'Accept: application/json' --header 'Authorization: Bearer 7603c80ddcd596c6fffb642e44470b9cea0d79e2e67a7b9de9ff5b957d46c1c7' -d '{ \ 
-   "currency" : "BTC", \ 
+   "currency" : "USD_BTC", \ 
    "deal_type" : "B", \ 
    "deal_money" : "10000", \ 
    "amount" : "1", \ 
-   "fee_type" : "K" \ 
+   "fee_type" : "C" \ 
  }' 'https://api.uznex.co.kr/api/private/v1/order/place'
 ```
 
@@ -663,11 +611,11 @@ __[Input Parameters]__
 
 |&nbsp;&nbsp;&nbsp;Parameter Name&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
-|currency|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;코인명 (BTC, ETH, ETC, LTC, ZEC, etc.)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+|currency|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;마켓명_코인명 (USD_BTC, USD_UNB, BTC_EOS, BTC_XRP, etc.)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 |deal_type|판매/구매 구분 ( B-매수, S-매도)|
 |deal_money|주문 금액|
 |amount|주문 수량|
-|fee_type|수수료 타입 ( K-krw수수료, C-코인수수료 )<br>*판매 시에는 krw 수수료만 가능 |
+|fee_type|수수료 타입 (C-코인수수료 ) |
 
 __[Response]__
 
@@ -712,5 +660,15 @@ __[Response]__
 |2000|DATA가 존재하지 않습니다.
 |3000|Order State Ready|
 |9999|Interval Server Error|
+
+
+
+
+
+
+
+
+
+
 
 

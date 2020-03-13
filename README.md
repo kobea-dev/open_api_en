@@ -122,7 +122,7 @@ __[Response Body]__
 {
     "status": "0000",
     "data": {
-        "KRW": {
+        "USD": {
             "open_price": "1000",
             "close_price": "10001000",
             "low": "1000",
@@ -163,7 +163,7 @@ __[Response]__
 |&nbsp;&nbsp;&nbsp;Response Field&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
 |status: 0000|정상|
-|KRW, BTC| 마켓 코드|
+|USD, BTC| 마켓 코드|
 |open_price|최근 24시간 내 시작 거래금액|
 |close_price|최근 24시간 내 마지막 거래금액|
 |low|최근 24시간 내 최저 거래금액|
@@ -192,7 +192,7 @@ __[Response Body]__
   "data": {
     "timestamp": 1548934145839,
     "order_currency": "BTC",
-    "payment_currency": "KRW",
+    "payment_currency": "USD",
     "bids": [
       {
         "it_action": "buy",

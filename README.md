@@ -13,7 +13,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;또한 지갑 API를 제공하여 암호화폐 유관 서비스를 구축하는데 도움을 드립니다.
 
 
-### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[API Key 생성하러 가기](https://www.uznex.co.kr/mypage/mypage.do) (API Key는 Uznex 마이페이지 에서 생성할 수 있습니다.)
+### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Go to API Key creation](https://www.uznex.co.kr/mypage/mypage.do) (You can create API Key at 'Mypage' in Uznex.)
 
 
 &nbsp;
@@ -34,17 +34,18 @@
 
 ### [INDEX]
 ### 1. Public API
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1-1. Ticker&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 거래소 마지막 거래 정보 <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1-2. Orderbook&nbsp; - 거래소 판매 / 구매 등록 대기 또는 거래 중 내역 정보 <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1-1. Ticker&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - last tradging information on the exchange <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1-2. Orderbook&nbsp; - 
+Exchange sale / Buy registration standing by or trading details <br/>
 ### 2. Token
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2-1. Create&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 최초 토큰 생성 <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2-2. Refresh&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 토큰 갱신 <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2-1. Create&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Creation the initial Token <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2-2. Refresh&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Update Token <br/>
 ### 3. Private API
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3-1. Account &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 회원 정보 조회 <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3-2. Balance &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 회원 지갑 정보 <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3-3. Transaction - 회원 거래 내역 <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3-4. Cancel &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 회원 판매 / 구매 거래 취소 <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3-5. Place &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 회원 판매 / 구매 거래 주문 등록 및 체결 <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3-1. Account &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Member information search <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3-2. Balance &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Member wallet information <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3-3. Transaction - Member trading history <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3-4. Cancel &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Member's sell / buy trading cancel <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3-5. Place &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Member's sell / buy trading order registration and conclusion <br/>
 ### 4. Status
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4-1. Token Error <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4-2. Exception <br/>
@@ -58,7 +59,7 @@
 ### 1. Public API
 &nbsp;
 ---
-#### 1-1.Ticker - 거래소 마지막 거래 정보
+#### 1-1.Ticker - last tradging information on the exchange
 
 __[GET]__ &nbsp;&nbsp;&nbsp;```https://api.uznex.co.kr/api/v1/ticker/currency/{coin_code}```
 
@@ -104,30 +105,30 @@ __[Input Parameters]__
 
 |&nbsp;&nbsp;&nbsp;Parameter Name&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
-|coin_code|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;마켓명_코인명 (USD_BTC, USD_UNB, BTC_EOS, BTC_XRP, etc.)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+|coin_code|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Market name_Coin name (USD_BTC, USD_UNB, BTC_EOS, BTC_XRP, etc.)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 
 __[Response]__
 
 |&nbsp;&nbsp;&nbsp;Response Field&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
-|status: 0000|정상|
-|KRW, BTC| 마켓 코드|
-|open_price|최근 24시간 내 시작 거래금액|
-|close_price|최근 24시간 내 마지막 거래금액|
-|low|최근 24시간 내 최저 거래금액|
-|High|최근 24시간 내 최고 거래금액|
-|average_price|최근 24시간 내 평균 거래금액|
-|units_traded|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;최근 24시간 내 Currency 거래량&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
-|volume_1day|최근 1일간 Currency 거래량|
-|volume_7day|최근 7일간 Currency 거래량|
-|buy_price|거래 대기건 최고 구매가|
-|sell_price|거래 대기건 최소 판매가|
-|date|현재 시간 Timestamp|
+|status: 0000|Normal|
+|USD, BTC| Market code|
+|open_price|Start trading amount within the last 24 hours|
+|close_price|Last trading amount within the last 24 hours|
+|low|Minimum trading amount within the last 24 hours|
+|High|Maximum trading amount within the last 24 hours|
+|average_price|Average trading amount within the last 24 hours|
+|units_traded|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Currency trading volume in the last 24 hours&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+|volume_1day|Currency trading volume in the last 1 day|
+|volume_7day|Currency trading volume in the last 7 days|
+|buy_price|The highest buying price on the waiting list|
+|sell_price|The lowest selling price on the waiting list|
+|date|Currnt time Timestamp|
 
 &nbsp;
 ---
 
-#### 1-2. Orderbook - 거래소 판매 / 구매 등록 대기 또는 거래 중 내역 정보
+#### 1-2. Orderbook - Exchange selling / buying registration stading by or transaction details
 __[GET]__ &nbsp;&nbsp;&nbsp;```https://api.uznex.co.kr/api/orderbook/currency/{coin_code}```
 
 __[Curl]__ &nbsp;&nbsp;&nbsp;```curl -X GET --header 'Accept: application/json' 'https://api.uznex.co.kr/api/orderbook/currency/{coin_code}'```
@@ -174,18 +175,18 @@ __[Input Parameters]__
 
 |&nbsp;&nbsp;&nbsp;Parameter Name&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
-|coin_code|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;마켓명_코인명 (USD_BTC, USD_UNB, BTC_EOS, BTC_XRP, etc.)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|coin_code|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Maeket name_Coin name (USD_BTC, USD_UNB, BTC_EOS, BTC_XRP, etc.)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 __[Response]__
 
 |&nbsp;&nbsp;&nbsp;Response Field&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
-|timestamp|현재시간|
-|order_currency|코인|
-|payment_currency|지불 통화|
+|timestamp|Current time|
+|order_currency|Coin|
+|payment_currency|Payment currency|
 |it_action|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[bids]: buy / [asks]: sell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
-|it_market_cost|시세|
-|nResCoin|사용 가능 코인|
+|it_market_cost|Market price|
+|nResCoin|Available coin|
 
 &nbsp;
 
@@ -193,7 +194,7 @@ __[Response]__
 &nbsp;
 ### 2. Token
 
-#### 2-1. Create - 최초 토큰 생성
+#### 2-1. Create - Create the initial Token
 
 __[POST]__ &nbsp;&nbsp;&nbsp;```https://api.uznex.co.kr/api/v1/access_token```
 
@@ -239,26 +240,27 @@ __[Input Parameters]__
 |&nbsp;&nbsp;&nbsp;Parameter Name&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
 |nonce|Request Time (Unix Time)|
-|hstr|sha256( apikey + secretkey + nonce ) → 16진수 변환 스트링|
-|apikey|회원 API key|
+|hstr|sha256( apikey + secretkey + nonce ) → 
+Hexadecimal conversion string|
+|apikey|Member API key|
 |grant_type|APIKEY|
-|expires_in|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Access Token 만료시간 (Minute Time, 최소30분 ~ 최대 60분)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+|expires_in|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Access Token expire time (Minute Time, Minimun 30min ~ Maximun 60min)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 
 __[Response]__
 
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Response Field&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
-|status| 0000: 정상 / others: error|
-|message|결과 메시지|
-|access_token|Uznex API 사용을 위한 Access Token|
-|access_token_expire|Access Token 만료시간 (Unix Time)|
-|refresh_token|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Access Token 갱신을 위한 Refresh Token&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
-|refresh_token_expire|Refresh Token 만료시간 (Unix Time)|
+|status| 0000: Normal / others: error|
+|message|Result Message|
+|access_token|Access Token for using Uznex API|
+|access_token_expire|Access Token expire time (Unix Time)|
+|refresh_token|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Refresh Token for updating Access Token&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+|refresh_token_expire|Refresh Token expire time (Unix Time)|
 
 &nbsp;
 ---
 
-#### 2-2. Refresh - 토큰 갱신
+#### 2-2. Refresh - Update token
 
 __[POST]__&nbsp;&nbsp;&nbsp;```https://api.uznex.co.kr/api/v1/access_token```
 
@@ -299,20 +301,20 @@ __[Input Parameters]__
 
 |&nbsp;&nbsp;&nbsp;Parameter Name&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
-|refresh_token|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Token Create API에서 생성된 Refresh Token&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
-|expires_in|Access Token 만료시간 (Minute Unit, 최소30분~최대60분)|
+|refresh_token|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Token Create Refresh Token created by API&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+|expires_in|Access Token expire time (Minute Unit, Minimum 30min~Maximum60min)|
 |grant_type|REFRESH|
 
 __[Response]__
 
 |&nbsp;&nbsp;&nbsp;Response Field&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
-|status|0000: 정상 / others: error|
-|message| 결과 메시지|
-|access_token|Uznex API 사용을 위한 Access Token|
-|access_token_expire|Access Token 만료시간 (Unix Time)|
-|refresh_token|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Access Token 갱신을 위한 Refresh Token&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
-|refresh_token_expire|Refresh Token 만료시간 (Unix Time)|
+|status|0000: Normal / others: error|
+|message| Result message|
+|access_token|Access Token for using Uznex API|
+|access_token_expire|Access Token expire time (Unix Time)|
+|refresh_token|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Refresh Token for updating Access Token  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+|refresh_token_expire|Refresh Token expire time (Unix Time)|
 
 &nbsp;
 
@@ -320,7 +322,7 @@ __[Response]__
 &nbsp;
 ### 3. Private API
 
-#### 3-1. Account - 회원 정보 조회
+#### 3-1. Account - Member information search
 
 __[GET]__ &nbsp;&nbsp;&nbsp;```https://api.uznex.co.kr/api/private/v1/account?currency={currency}```
 
@@ -354,7 +356,7 @@ __[Input Parameters]__
 
 |&nbsp;&nbsp;&nbsp;Parameter Name&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
-|currency|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;마켓명_코인명 (USD_BTC, USD_UNB, BTC_EOS, BTC_XRP, etc.)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+|currency|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Market name_Coin name (USD_BTC, USD_UNB, BTC_EOS, BTC_XRP, etc.)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 
 
 
@@ -362,15 +364,15 @@ __[Response]__
 
 |&nbsp;&nbsp;&nbsp;Response Field&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
-|status|0000: 정상 / others: error|
-|account_id|유저 고유 번호|
-|balance|남은 코인|
-|trade_fee|적용 수수료율|
-|created|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;가입시간 (Unix Time)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+|status|0000: Normal / others: error|
+|account_id|User account ID|
+|balance|Balance coin|
+|trade_fee|Applicable fee rate|
+|created|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Signed up time (Unix Time)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 
 &nbsp;
 ---
-#### 3-2. Balance - 회원 지갑 정보
+#### 3-2. Balance - Member wallet information
 
 __[GET]__ &nbsp;&nbsp;&nbsp;```https://api.uznex.co.kr/api/private/v1/balance?currency={currency}```
 
@@ -386,9 +388,9 @@ __[Response Body]__
 {
   "status": "0000",
   "data": {
-    "total_krw": 9999613666.0878,
-    "in_use_krw": 7598430736.27575,
-    "available_krw": 2401182929.81205,
+    "total_usd": 9999613666.0878,
+    "in_use_usd": 7598430736.27575,
+    "available_usd": 2401182929.81205,
     "total_btc": 5532121.7132,
     "in_use_btc": 8.8742,
     "available_btc": 5532112.839
@@ -406,21 +408,21 @@ __[Input Parameters]__
 
 |&nbsp;&nbsp;&nbsp;Parameter Name&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
-|currency|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;마켓명_코인명 (USD_BTC, USD_UNB, BTC_EOS, BTC_XRP, etc.)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+|currency|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Market name_Coin name (USD_BTC, USD_UNB, BTC_EOS, BTC_XRP, etc.)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 
 __[Response]__
 
 |&nbsp;&nbsp;&nbsp;Response Field&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
-|status|0000: 정상 / others: error|
-|total_{currency}|코인별 전체 Currency|
-|in_use_{currency}|코인별 사용중 Currency|
-|available_{currency}|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;코인별 사용가능 Curreny&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+|status|0000: Normal / others: error|
+|total_{currency}|Total coin Currency|
+|in_use_{currency}|Used coin Currency|
+|available_{currency}|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Available to use coin Curreny&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 
 &nbsp;
 ---
 
-#### 3-3. Transaction - 회원 거래 내역
+#### 3-3. Transaction - Member trading history
 
 __[GET]__ 
 
@@ -487,28 +489,29 @@ __[Input Parameters]__
 
 |&nbsp;&nbsp;&nbsp;Parameter Name&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
-|currency|마켓명_코인명 (USD_BTC, USD_UNB, BTC_EOS, BTC_XRP, etc.)|
-|deal_status|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;상태 - 0(전체), 1(매도), 2(매수), 3(취소), 4(정정)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
-|trd_status|주문 상태 - OK, WAIT|
+|currency|Market name_Coin name (USD_BTC, USD_UNB, BTC_EOS, BTC_XRP, etc.)|
+|deal_status|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Status - 0(Total), 1(Buying), 2(Selling), 3(Cancel), 4(Normal)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+|trd_status|Order status - OK, WAIT|
 
 __[Response]__
 
 |&nbsp;&nbsp;&nbsp;Response Field&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
-|status|0000: 정상 / others: error|
-|search|0(전체), 1(매도), 2(매수), 3(입금), 4(출금) 중|
-|orderId|주문번호|
-|price|거래금액|
-|trd_state|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;주문 상태 (OK:전체 체결 완료, WAIT:체결 대기)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
-|fee|거래 수수료|
-|trd_type|상태 (BUY:매도, SELL:매수, C:취소, M:정정)|
-|units|거래 Currency 수량|
-|transfer_date|거래일시|
-|{currency}1krw|통상적으로 말하는 시세|
+|status|0000: Normal / others: error|
+|search|One of 0(Total), 1(Buying), 2(Selling), 3(Deposit), 4(Withdraw)|
+|orderId|Order number|
+|price|Trading amount|
+|trd_state|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Order status (OK:
+Completed the conclusion, WAIT:Waiting for conclusion)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+|fee|Trading fee|
+|trd_type|Status (BUY:Buying, SELL:Selling, C:Cancel, M:Correction)|
+|units|Trading Currency volume|
+|transfer_date|Date of trading|
+|{currency}1usd|Current market price|
 
 &nbsp;
 ---
-#### 3-4. Cancel - 회원 판매 / 구매 거래 취소
+#### 3-4. Cancel - Member selling / buying trading cancel
 
 __[POST]__&nbsp;&nbsp;&nbsp;``https://api.uznex.co.kr/api/private/v1/order/cancel``
 
@@ -548,22 +551,23 @@ __[Input Parameters]__
 
 |&nbsp;&nbsp;&nbsp;Parameter Name&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
-|apikey|유저 API 고유 Key|
-|currency|마켓명_코인명 (USD_BTC, USD_UNB, BTC_EOS, BTC_XRP, etc.)|
-|org_ord_no|주문번호|
-|nonce|현재날짜 (ex : 20190208)|
+|apikey|User API 
+inherence Key|
+|currency|Market name_Coin name (USD_BTC, USD_UNB, BTC_EOS, BTC_XRP, etc.)|
+|org_ord_no|Order number|
+|nonce|Current date (ex : 20190208)|
 |hstr|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sha-256(nonce, currency, secretKey, sheckSum)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 
 __[Response]__
 
 |&nbsp;&nbsp;&nbsp;Response Field&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
-|status|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0000: 정상 / others: error&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+|status|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0000: Normal / others: error&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 
 &nbsp;
 ---
 
-#### 3-5. Place - 회원 판매 / 구매 거래 주문 등록 및 체결
+#### 3-5. Place - Member's sell / buy trading order registration and conclusion
 
 __[POST]__&nbsp;&nbsp;&nbsp;``https://api.uznex.co.kr/api/private/v1/order/place``
 
@@ -612,17 +616,17 @@ __[Input Parameters]__
 |&nbsp;&nbsp;&nbsp;Parameter Name&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
 |currency|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;마켓명_코인명 (USD_BTC, USD_UNB, BTC_EOS, BTC_XRP, etc.)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
-|deal_type|판매/구매 구분 ( B-매수, S-매도)|
-|deal_money|주문 금액|
-|amount|주문 수량|
-|fee_type|수수료 타입 (C-코인수수료 ) |
+|deal_type|Selling/Buying sperate ( B-buying, S-selling)|
+|deal_money|Order price|
+|amount|Order volume|
+|fee_type|Fee type (C-Coin fee) |
 
 __[Response]__
 
 |&nbsp;&nbsp;&nbsp;Response Field&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
-|status| 0000: 정상 / others: error|
-|order_id|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;주문 번호&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+|status| 0000: Normal / others: error|
+|order_id|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Order number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 
 &nbsp;
 
@@ -651,13 +655,13 @@ __[Response]__
 
 |&nbsp;&nbsp;&nbsp;Status Value&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
-|0001|코인종류 입력 에러|
-|0002|존재하지 않는 주문번호입니다.|
-|0003|주문가격을 확인하시기 바랍니다. / 거래가격은 1,000원 이상만 가능합니다.|
-|0006|주문수량을 확인하시기 바랍니다. / 코인 최대금액을 초과하였습니다. / 코인 거래단위를 확인하시기 바랍니다. / 이미 전체취소 등록되어 있습니다.|
+|0001|Coin type input error|
+|0002|Not exist order number.|
+|0003|Please check the order price. / Trading amount can only be over 1,000 won.|
+|0006|Please check the order volume. / The maximum coin amount is exceeded. / Please check the trading coin unit. / All cancellation is already registered.|
 |1001|Invalid Parameter|
 |1004|The data does not exist.|
-|2000|DATA가 존재하지 않습니다.
+|2000|DATA does not exist.
 |3000|Order State Ready|
 |9999|Interval Server Error|
 

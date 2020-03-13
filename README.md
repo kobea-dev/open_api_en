@@ -34,18 +34,18 @@
 
 ### [INDEX]
 ### 1. Public API
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1-1. Ticker1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 거래소 마지막 거래 정보 <span style="color:red">(Deprecated)</span> <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1-2. Ticker2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 거래소 마지막 거래 정보 (마켓 구분 추가) <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1-3. Orderbook&nbsp; - 거래소 판매 / 구매 등록 대기 또는 거래 중 내역 정보 <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1-1. Ticker1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - last transaction information on the exchange <span style="color:red">(Deprecated)</span> <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1-2. Ticker2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - last transaction information on the exchange (Add Market Separation) <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1-3. Orderbook&nbsp; - Selling on exchange / Stand by for buying registration or transaction history information <br/>
 ### 2. Token
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2-1. Create&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 최초 토큰 생성 <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2-2. Refresh&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 토큰 갱신 <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2-1. Create&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Create initial Token <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2-2. Refresh&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Update Token <br/>
 ### 3. Private API
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3-1. Account &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 회원 정보 조회 <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3-2. Balance &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 회원 지갑 정보 <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3-3. Transaction - 회원 거래 내역 <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3-4. Cancel &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 회원 판매 / 구매 거래 취소 <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3-5. Place &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 회원 판매 / 구매 거래 주문 등록 및 체결 <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3-1. Account &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Member information check <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3-2. Balance &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Member wallet information <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3-3. Transaction - Member transaction history <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3-4. Cancel &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Member's selling / buying trading cancel <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3-5. Place &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Member's selling / buying transaction order registration and conclusion <br/>
 ### 4. Status
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4-1. Token Error <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4-2. Exception <br/>
@@ -58,7 +58,7 @@
 
 ### 1. Public API
 
-#### 1-1.Ticker - 거래소 마지막 거래 정보 <span style="color:red">(Deprecated)</span>
+#### 1-1.Ticker - last transaction information on the exchange <span style="color:red">(Deprecated)</span>
 
 __[GET]__ &nbsp;&nbsp;&nbsp;```https://api.uznex.co.kr/api/ticker/currency/{coin_code}```
 
@@ -89,18 +89,18 @@ __[Input Parameters]__
 
 |&nbsp;&nbsp;&nbsp;Parameter Name&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
-|coin_code|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;코인명 (ALL, BTC, ETH, ETC, LTC, ZEC, etc.)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+|coin_code|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Coin name (ALL, BTC, ETH, ETC, LTC, ZEC, etc.)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 
 __[Response]__
 
 |&nbsp;&nbsp;&nbsp;Response Field&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
-|status: 0000|정상|
-|open_price|최근 24시간 내 시작 거래금액|
-|close_price|최근 24시간 내 마지막 거래금액|
-|low|최근 24시간 내 최저 거래금액|
-|High|최근 24시간 내 최고 거래금액|
-|average_price|최근 24시간 내 평균 거래금액|
+|status: 0000|Normal|
+|open_price|Starting transaction amount in the last 24 hours|
+|close_price|Last transaction amount in the last 24 hours|
+|low|Minimum transaction amount in the last 24 hours|
+|High|Maximun transaction amount in the last 24 hours|
+|average_price|Average transaction amount in the last 24 hours|
 |units_traded|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;최근 24시간 내 Currency 거래량&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 |volume_1day|최근 1일간 Currency 거래량|
 |volume_7day|최근 7일간 Currency 거래량|
@@ -110,7 +110,7 @@ __[Response]__
 
 &nbsp;
 ---
-#### 1-2.Ticker - 거래소 마지막 거래 정보 (마켓 구분 추가)
+#### 1-2.Ticker - last transaction information on the exchange (Add Market Separation)
 
 __[GET]__ &nbsp;&nbsp;&nbsp;```https://api.uznex.co.kr/api/v1/ticker/currency/{coin_code}```
 
@@ -156,16 +156,16 @@ __[Input Parameters]__
 
 |&nbsp;&nbsp;&nbsp;Parameter Name&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
-|coin_code|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;코인명 (ALL, BTC, ETH, ETC, LTC, ZEC, etc.)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+|coin_code|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Coin name (ALL, BTC, ETH, ETC, LTC, ZEC, etc.)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 
 __[Response]__
 
 |&nbsp;&nbsp;&nbsp;Response Field&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
-|status: 0000|정상|
-|USD, BTC| 마켓 코드|
-|open_price|최근 24시간 내 시작 거래금액|
-|close_price|최근 24시간 내 마지막 거래금액|
+|status: 0000|Normal|
+|USD, BTC| Market code|
+|open_price|Starting transaction amount in the last 24 hours|
+|close_price|Last transaction amount in the last 24 hours|
 |low|최근 24시간 내 최저 거래금액|
 |High|최근 24시간 내 최고 거래금액|
 |average_price|최근 24시간 내 평균 거래금액|
@@ -179,7 +179,7 @@ __[Response]__
 &nbsp;
 ---
 
-#### 1-3. Orderbook - 거래소 판매 / 구매 등록 대기 또는 거래 중 내역 정보
+#### 1-3. Orderbook - Exchange selling / buying 거래소 판매 / 구매 등록 대기 또는 거래 중 내역 정보
 __[GET]__ &nbsp;&nbsp;&nbsp;```https://api.uznex.co.kr/api/orderbook/currency/{coin_code}```
 
 __[Curl]__ &nbsp;&nbsp;&nbsp;```curl -X GET --header 'Accept: application/json' 'https://api.uznex.co.kr/api/orderbook/currency/{coin_code}'```
@@ -226,7 +226,7 @@ __[Input Parameters]__
 
 |&nbsp;&nbsp;&nbsp;Parameter Name&nbsp;&nbsp;&nbsp;|Description|
 |:------------:|:---------:|
-|coin_code|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;코인명 (BTC, ETH, ETC, LTC, ZEC, etc.)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|coin_code|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin name (BTC, ETH, ETC, LTC, ZEC, etc.)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 __[Response]__
 

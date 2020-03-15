@@ -13,7 +13,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;또한 지갑 API를 제공하여 암호화폐 유관 서비스를 구축하는데 도움을 드립니다.
 
 
-### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Go to API Key creation](https://www.uznex.co.kr/mypage/mypage.do) (You can create API Key at 'Mypage' in Uznex.)
+### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Go to API Key creation](https://www.uznex.com/mypage/mypage.do) (You can create API Key at 'Mypage' in Uznex.)
 
 
 &nbsp;
@@ -61,9 +61,9 @@ Exchange sale / Buy registration standing by or trading details <br/>
 ---
 #### 1-1.Ticker - last tradging information on the exchange
 
-__[GET]__ &nbsp;&nbsp;&nbsp;```https://api.uznex.co.kr/api/v1/ticker/currency/{coin_code}```
+__[GET]__ &nbsp;&nbsp;&nbsp;```https://api.uznex.com/api/v1/ticker/currency/{coin_code}```
 
-__[Curl]__ &nbsp;&nbsp;&nbsp;```curl -X GET --header 'Accept: application/json' 'https://api.uznex.co.kr/api/v1/ticker/currency/{coin_code}'```
+__[Curl]__ &nbsp;&nbsp;&nbsp;```curl -X GET --header 'Accept: application/json' 'https://api.uznex.com/api/v1/ticker/currency/{coin_code}'```
 
 __[Response Body]__
 
@@ -129,9 +129,9 @@ __[Response]__
 ---
 
 #### 1-2. Orderbook - Exchange selling / buying registration stading by or transaction details
-__[GET]__ &nbsp;&nbsp;&nbsp;```https://api.uznex.co.kr/api/orderbook/currency/{coin_code}```
+__[GET]__ &nbsp;&nbsp;&nbsp;```https://api.uznex.com/api/orderbook/currency/{coin_code}```
 
-__[Curl]__ &nbsp;&nbsp;&nbsp;```curl -X GET --header 'Accept: application/json' 'https://api.uznex.co.kr/api/orderbook/currency/{coin_code}'```
+__[Curl]__ &nbsp;&nbsp;&nbsp;```curl -X GET --header 'Accept: application/json' 'https://api.uznex.com/api/orderbook/currency/{coin_code}'```
 
 
 __[Response Body]__
@@ -196,7 +196,7 @@ __[Response]__
 
 #### 2-1. Create - Create the initial Token
 
-__[POST]__ &nbsp;&nbsp;&nbsp;```https://api.uznex.co.kr/api/v1/access_token```
+__[POST]__ &nbsp;&nbsp;&nbsp;```https://api.uznex.com/api/v1/access_token```
 
 ```
 {
@@ -217,7 +217,7 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
    "apikey":"BTkYXt3hv5BxzieKxHiE9zovAsDSVXraNpJ", \ 
    "grant_type":"APIKEY", \ 
    "expires_in":60 \ 
- }' 'https://api.uznex.co.kr/api/v1/access_token'
+ }' 'https://api.uznex.com/api/v1/access_token'
 ```
 
 __[Response Body]__
@@ -262,7 +262,7 @@ __[Response]__
 
 #### 2-2. Refresh - Update token
 
-__[POST]__&nbsp;&nbsp;&nbsp;```https://api.uznex.co.kr/api/v1/access_token```
+__[POST]__&nbsp;&nbsp;&nbsp;```https://api.uznex.com/api/v1/access_token```
 
 ```
 {
@@ -279,7 +279,7 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
    "refresh_token": "48f9b90cee15348744b0da1a8e995c5d3833fd985d8f9dd138c04755b18731c7", \ 
    "expires_in":60, \ 
    "grant_type":"REFRESH" \ 
- }' 'https://api.uznex.co.kr/api/v1/access_token'
+ }' 'https://api.uznex.com/api/v1/access_token'
 ```
 
 __[Response Body]__
@@ -324,12 +324,12 @@ __[Response]__
 
 #### 3-1. Account - Member information search
 
-__[GET]__ &nbsp;&nbsp;&nbsp;```https://api.uznex.co.kr/api/private/v1/account?currency={currency}```
+__[GET]__ &nbsp;&nbsp;&nbsp;```https://api.uznex.com/api/private/v1/account?currency={currency}```
 
 __[Curl]__
 
 ```
-curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer 125543745d3c2712529a579d1383e89469e3cc9601cd08f22e4dd6c482b5d7b9' 'https://api.uznex.co.kr/api/private/v1/account?currency=BTC'
+curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer 125543745d3c2712529a579d1383e89469e3cc9601cd08f22e4dd6c482b5d7b9' 'https://api.uznex.com/api/private/v1/account?currency=BTC'
 ```
 
 __[Response Body]__
@@ -374,12 +374,12 @@ __[Response]__
 ---
 #### 3-2. Balance - Member wallet information
 
-__[GET]__ &nbsp;&nbsp;&nbsp;```https://api.uznex.co.kr/api/private/v1/balance?currency={currency}```
+__[GET]__ &nbsp;&nbsp;&nbsp;```https://api.uznex.com/api/private/v1/balance?currency={currency}```
 
 __[Curl]__
 
 ```
-curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer 7488eeb56b924e369c2d60f738e795072d3e90740339dc42205f50743619cfb4' 'https://api.uznex.co.kr/api/private/v1/balance?currency=BTC'
+curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer 7488eeb56b924e369c2d60f738e795072d3e90740339dc42205f50743619cfb4' 'https://api.uznex.com/api/private/v1/balance?currency=BTC'
 ```
 
 __[Response Body]__
@@ -427,13 +427,13 @@ __[Response]__
 __[GET]__ 
 
 ```
-https://api.uznex.co.kr/api/private/v1/transaction?currency={currency}&deal_status={deal_status}&trd_state={trd_state}
+https://api.uznex.com/api/private/v1/transaction?currency={currency}&deal_status={deal_status}&trd_state={trd_state}
 ```
 
 __[Curl]__
 
 ```
-curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer 7488eeb56b924e369c2d60f738e795072d3e90740339dc42205f50743619cfb4' 'https://api.uznex.co.kr/api/private/v1/transaction?currency=BTC&deal_status=0&trd_state=OK'
+curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer 7488eeb56b924e369c2d60f738e795072d3e90740339dc42205f50743619cfb4' 'https://api.uznex.com/api/private/v1/transaction?currency=BTC&deal_status=0&trd_state=OK'
 ```
 
 __[Response Body]__
@@ -513,7 +513,7 @@ Completed the conclusion, WAIT:Waiting for conclusion)&nbsp;&nbsp;&nbsp;&nbsp;&n
 ---
 #### 3-4. Cancel - Member selling / buying trading cancel
 
-__[POST]__&nbsp;&nbsp;&nbsp;``https://api.uznex.co.kr/api/private/v1/order/cancel``
+__[POST]__&nbsp;&nbsp;&nbsp;``https://api.uznex.com/api/private/v1/order/cancel``
 
 ```
 {
@@ -528,7 +528,7 @@ __[Curl]__
 curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'Accept: application/json' --header 'Authorization: Bearer 7603c80ddcd596c6fffb642e44470b9cea0d79e2e67a7b9de9ff5b957d46c1c7' -d '{ \ 
    "currency" : "USD_BTC", \ 
    "org_ord_no" : "190208154943577" \ 
- }' 'https://api.uznex.co.kr/api/private/v1/order/cancel'
+ }' 'https://api.uznex.com/api/private/v1/order/cancel'
 ``` 
 
 __[Response Body]__
@@ -569,7 +569,7 @@ __[Response]__
 
 #### 3-5. Place - Member's sell / buy trading order registration and conclusion
 
-__[POST]__&nbsp;&nbsp;&nbsp;``https://api.uznex.co.kr/api/private/v1/order/place``
+__[POST]__&nbsp;&nbsp;&nbsp;``https://api.uznex.com/api/private/v1/order/place``
 
 ```
 {
@@ -590,7 +590,7 @@ curl -X POST --header 'Content-Type: application/json;charset=UTF-8' --header 'A
    "deal_money" : "10000", \ 
    "amount" : "1", \ 
    "fee_type" : "C" \ 
- }' 'https://api.uznex.co.kr/api/private/v1/order/place'
+ }' 'https://api.uznex.com/api/private/v1/order/place'
 ```
 
 __[Response Body]__
